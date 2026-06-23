@@ -11,7 +11,7 @@ import { ContactSection } from "@/components/home/contact-section";
 import { FaqSection } from "@/components/home/faq-section";
 import { NewsletterSection } from "@/components/home/newsletter-section";
 
-export default function HomePage() {
+export default function EnHomePage() {
   return (
     <>
       <Hero />

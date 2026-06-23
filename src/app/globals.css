@@ -1,26 +1,395 @@
 @import "tailwindcss";
 
+/* ============================================================
+   ROTERMİ ENERJİ — Premium Design Token System
+   Vertical: Energy / Industrial Combustion Systems
+   Design: Kurumsal Premium (Route A)
+   ============================================================ */
+
+/* --- Layer 0: CSS Custom Properties (Raw Palette) --- */
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  /* Brand — Deep Navy (trust, engineering, authority) */
+  --color-navy-50: #e8ecf2;
+  --color-navy-100: #c5cfde;
+  --color-navy-200: #9aacc4;
+  --color-navy-300: #6f8aaa;
+  --color-navy-400: #4a6d95;
+  --color-navy-500: #1a3d6d;
+  --color-navy-600: #15325a;
+  --color-navy-700: #102848;
+  --color-navy-800: #0b1d3a;
+  --color-navy-900: #07142b;
+  --color-navy-950: #040c1a;
+
+  /* Accent — Energy Coral/Flame (warmth, energy, action) */
+  --color-flame-50: #fef2ef;
+  --color-flame-100: #fdddd6;
+  --color-flame-200: #fbb9a8;
+  --color-flame-300: #f8947a;
+  --color-flame-400: #f56f4c;
+  --color-flame-500: #f04e23;
+  --color-flame-600: #d43d15;
+  --color-flame-700: #b03010;
+  --color-flame-800: #8c240c;
+  --color-flame-900: #681908;
+
+  /* Neutral — Warm Industrial Gray */
+  --color-warm-50: #f8f7f5;
+  --color-warm-100: #f0eeea;
+  --color-warm-200: #e4e0d8;
+  --color-warm-300: #d1ccc0;
+  --color-warm-400: #a9a194;
+  --color-warm-500: #7d7569;
+  --color-warm-600: #5e574e;
+  --color-warm-700: #47423b;
+  --color-warm-800: #302c27;
+  --color-warm-900: #1c1916;
+  --color-warm-950: #0f0d0b;
+
+  /* Semantic */
+  --color-success: #16a34a;
+  --color-success-light: #dcfce7;
+  --color-error: #dc2626;
+  --color-error-light: #fef2f2;
+  --color-warning: #f59e0b;
+  --color-warning-light: #fffbeb;
+  --color-info: #0284c7;
+  --color-info-light: #f0f9ff;
+
+  /* Surface semantic tokens */
+  --surface-primary: #ffffff;
+  --surface-secondary: #f8f7f5;
+  --surface-tertiary: #f0eeea;
+  --surface-inverse: #0b1d3a;
+  --surface-overlay: rgba(11, 29, 58, 0.6);
+
+  /* Text semantic tokens */
+  --text-primary: #1c1916;
+  --text-secondary: #5e574e;
+  --text-tertiary: #a9a194;
+  --text-inverse: #ffffff;
+  --text-brand: #1a3d6d;
+  --text-accent: #d43d15;
+
+  /* Border tokens */
+  --border-light: #e4e0d8;
+  --border-base: #d1ccc0;
+  --border-focus: #1a3d6d;
+
+  /* Typography */
+  --font-sans: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  --font-display: "Outfit", "Inter", -apple-system, sans-serif;
+  --font-mono: "JetBrains Mono", "Fira Code", monospace;
+
+  /* Radii */
+  --radius-xs: 4px;
+  --radius-sm: 6px;
+  --radius-md: 8px;
+  --radius-lg: 12px;
+  --radius-xl: 16px;
+  --radius-2xl: 24px;
+  --radius-full: 9999px;
+
+  /* Shadows */
+  --shadow-xs: 0 1px 2px rgba(11, 29, 58, 0.04);
+  --shadow-sm: 0 1px 3px rgba(11, 29, 58, 0.06), 0 1px 2px rgba(11, 29, 58, 0.04);
+  --shadow-md: 0 4px 6px -1px rgba(11, 29, 58, 0.07), 0 2px 4px -2px rgba(11, 29, 58, 0.05);
+  --shadow-lg: 0 10px 20px -3px rgba(11, 29, 58, 0.08), 0 4px 10px -4px rgba(11, 29, 58, 0.04);
+  --shadow-xl: 0 20px 40px -8px rgba(11, 29, 58, 0.12);
+  --shadow-2xl: 0 40px 80px -12px rgba(11, 29, 58, 0.16);
+  --shadow-glow: 0 0 40px rgba(240, 78, 35, 0.15);
+
+  /* Motion */
+  --duration-instant: 100ms;
+  --duration-fast: 150ms;
+  --duration-normal: 200ms;
+  --duration-slow: 300ms;
+  --duration-glacial: 500ms;
+  --duration-epic: 800ms;
+  --ease-out: cubic-bezier(0.16, 1, 0.3, 1);
+  --ease-in: cubic-bezier(0.4, 0, 1, 1);
+  --ease-in-out: cubic-bezier(0.65, 0, 0.35, 1);
+  --ease-spring: cubic-bezier(0.34, 1.56, 0.64, 1);
+  --ease-smooth: cubic-bezier(0.4, 0, 0.2, 1);
 }
 
+/* --- Tailwind v4 @theme — maps tokens into utility classes --- */
 @theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+  --color-navy-50: var(--color-navy-50);
+  --color-navy-100: var(--color-navy-100);
+  --color-navy-200: var(--color-navy-200);
+  --color-navy-300: var(--color-navy-300);
+  --color-navy-400: var(--color-navy-400);
+  --color-navy-500: var(--color-navy-500);
+  --color-navy-600: var(--color-navy-600);
+  --color-navy-700: var(--color-navy-700);
+  --color-navy-800: var(--color-navy-800);
+  --color-navy-900: var(--color-navy-900);
+  --color-navy-950: var(--color-navy-950);
+
+  --color-flame-50: var(--color-flame-50);
+  --color-flame-100: var(--color-flame-100);
+  --color-flame-200: var(--color-flame-200);
+  --color-flame-300: var(--color-flame-300);
+  --color-flame-400: var(--color-flame-400);
+  --color-flame-500: var(--color-flame-500);
+  --color-flame-600: var(--color-flame-600);
+  --color-flame-700: var(--color-flame-700);
+  --color-flame-800: var(--color-flame-800);
+  --color-flame-900: var(--color-flame-900);
+
+  --color-warm-50: var(--color-warm-50);
+  --color-warm-100: var(--color-warm-100);
+  --color-warm-200: var(--color-warm-200);
+  --color-warm-300: var(--color-warm-300);
+  --color-warm-400: var(--color-warm-400);
+  --color-warm-500: var(--color-warm-500);
+  --color-warm-600: var(--color-warm-600);
+  --color-warm-700: var(--color-warm-700);
+  --color-warm-800: var(--color-warm-800);
+  --color-warm-900: var(--color-warm-900);
+  --color-warm-950: var(--color-warm-950);
+
+  --color-success: var(--color-success);
+  --color-error: var(--color-error);
+  --color-warning: var(--color-warning);
+  --color-info: var(--color-info);
+
+  --font-sans: var(--font-sans);
+  --font-display: var(--font-display);
+  --font-mono: var(--font-mono);
+
+  --radius-xs: var(--radius-xs);
+  --radius-sm: var(--radius-sm);
+  --radius-md: var(--radius-md);
+  --radius-lg: var(--radius-lg);
+  --radius-xl: var(--radius-xl);
+  --radius-2xl: var(--radius-2xl);
+  --radius-full: var(--radius-full);
+
+  --shadow-xs: var(--shadow-xs);
+  --shadow-sm: var(--shadow-sm);
+  --shadow-md: var(--shadow-md);
+  --shadow-lg: var(--shadow-lg);
+  --shadow-xl: var(--shadow-xl);
+  --shadow-2xl: var(--shadow-2xl);
+  --shadow-glow: var(--shadow-glow);
+
+  --animate-fade-in: fade-in var(--duration-slow) var(--ease-out) both;
+  --animate-fade-in-up: fade-in-up var(--duration-slow) var(--ease-out) both;
+  --animate-fade-in-down: fade-in-down var(--duration-slow) var(--ease-out) both;
+  --animate-scale-in: scale-in var(--duration-normal) var(--ease-spring) both;
+  --animate-shimmer: shimmer 2s var(--ease-in-out) infinite;
+  --animate-count-up: count-up 2s var(--ease-out) both;
+  --animate-energy-pulse: energy-pulse 3s var(--ease-in-out) infinite;
+  --animate-float: float 6s var(--ease-in-out) infinite;
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
+/* --- Layer 1: Base Styles --- */
+@layer base {
+  html {
+    scroll-behavior: smooth;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    text-rendering: optimizeLegibility;
+  }
+
+  body {
+    background-color: var(--surface-primary);
+    color: var(--text-primary);
+    font-family: var(--font-sans);
+    font-size: 1rem;
+    line-height: 1.6;
+  }
+
+  /* Typography defaults */
+  h1, h2, h3, h4, h5, h6 {
+    font-family: var(--font-display);
+    font-weight: 600;
+    line-height: 1.2;
+    text-wrap: balance;
+    letter-spacing: -0.02em;
+  }
+
+  h1 { font-size: clamp(2.44rem, 0.22vw + 2.39rem, 3.125rem); font-weight: 700; }
+  h2 { font-size: clamp(1.95rem, 0.17vw + 1.91rem, 2.5rem); }
+  h3 { font-size: clamp(1.56rem, 0.14vw + 1.53rem, 2rem); }
+  h4 { font-size: clamp(1.25rem, 0.11vw + 1.22rem, 1.5rem); }
+
+  p {
+    text-wrap: pretty;
+    max-width: 70ch;
+  }
+
+  a {
+    color: var(--color-navy-600);
+    text-decoration: none;
+    transition: color var(--duration-fast) var(--ease-out);
+  }
+
+  a:hover {
+    color: var(--color-flame-500);
+  }
+
+  /* Selection */
+  ::selection {
+    background-color: var(--color-navy-600);
+    color: white;
   }
 }
 
-body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+/* --- Keyframes --- */
+@keyframes fade-in {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+@keyframes fade-in-up {
+  from { opacity: 0; transform: translateY(30px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes fade-in-down {
+  from { opacity: 0; transform: translateY(-20px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes scale-in {
+  from { opacity: 0; transform: scale(0.9); }
+  to { opacity: 1; transform: scale(1); }
+}
+
+@keyframes shimmer {
+  0% { background-position: 200% 0; }
+  100% { background-position: -200% 0; }
+}
+
+@keyframes energy-pulse {
+  0%, 100% { opacity: 0.4; transform: scale(1); }
+  50% { opacity: 0.8; transform: scale(1.05); }
+}
+
+@keyframes float {
+  0%, 100% { transform: translateY(0px); }
+  50% { transform: translateY(-10px); }
+}
+
+@keyframes count-up {
+  from { opacity: 0; transform: translateY(10px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+/* --- Scroll-driven animations (modern CSS, fallback for older browsers) --- */
+@supports (animation-timeline: scroll()) {
+  .reveal {
+    opacity: 0;
+    animation: reveal linear both;
+    animation-timeline: view();
+    animation-range: entry 5% entry 60%;
+  }
+
+  @keyframes reveal {
+    from { opacity: 0; translate: 0 40px; }
+    to { opacity: 1; translate: 0 0; }
+  }
+
+  .parallax-slow {
+    animation: parallax-slow linear both;
+    animation-timeline: scroll();
+  }
+
+  @keyframes parallax-slow {
+    from { translate: 0 0; }
+    to { translate: 0 -15%; }
+  }
+
+  .scroll-progress {
+    animation: scroll-progress-bar linear both;
+    animation-timeline: scroll();
+  }
+
+  @keyframes scroll-progress-bar {
+    from { scale: 0 1; }
+    to { scale: 1 1; }
+  }
+}
+
+/* --- Utility classes --- */
+@layer utilities {
+  .text-balance {
+    text-wrap: balance;
+  }
+
+  .text-pretty {
+    text-wrap: pretty;
+  }
+
+  .reading {
+    max-width: 65ch;
+  }
+
+  /* Glass effect */
+  .glass {
+    background: rgba(255, 255, 255, 0.8);
+    backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(16px);
+  }
+
+  .glass-dark {
+    background: rgba(11, 29, 58, 0.85);
+    backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(16px);
+  }
+
+  /* Energy gradient */
+  .gradient-energy {
+    background: linear-gradient(135deg, var(--color-navy-800) 0%, var(--color-navy-600) 40%, var(--color-flame-600) 100%);
+  }
+
+  .gradient-flame {
+    background: linear-gradient(135deg, var(--color-flame-500) 0%, var(--color-flame-400) 50%, var(--color-flame-300) 100%);
+  }
+
+  .gradient-text-energy {
+    background: linear-gradient(135deg, var(--color-flame-400) 0%, var(--color-flame-500) 50%, var(--color-navy-500) 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+
+  /* Skeleton loading */
+  .skeleton {
+    background: linear-gradient(90deg, var(--color-warm-100) 0%, var(--color-warm-200) 40%, var(--color-warm-100) 70%);
+    background-size: 200% 100%;
+    animation: shimmer 2s var(--ease-in-out) infinite;
+  }
+
+  /* Focus ring */
+  .focus-ring {
+    outline: 2px solid var(--color-navy-500);
+    outline-offset: 2px;
+  }
+
+  /* Screen reader only */
+  .sr-only {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    white-space: nowrap;
+    border-width: 0;
+  }
+}
+
+/* --- Accessibility: Respect motion preferences --- */
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
 }
